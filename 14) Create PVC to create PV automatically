@@ -1,0 +1,13 @@
+# This PVC file will create a pv & bind it automaticaly..
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+# If SC Name not mentioned, then it will select "default" sc
+# storageClassName: "standard"
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
