@@ -1,0 +1,18 @@
+#ReplicationController
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myrc1
+  
+spec:
+  relicas: 2
+  selector:
+    app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: "myc1"
+        image: vimal13/apache-webserver-php
