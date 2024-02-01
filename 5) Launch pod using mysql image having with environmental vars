@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mydb
+spec:
+  containers:
+  - name: mydb
+    image: mysql:5.7
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: redhat 
+    - name: MYSQL_DATABASE
+      value: mydb
+    - name: MYSQL_USER
+      value: user1
+    - name: MYSQL_PASSWORD
+      value: redhat   
+      
+#Password for admin & user1 is  [redhat]
+#Using a secret is good practice to prevent the critical data from exposing to public world.
