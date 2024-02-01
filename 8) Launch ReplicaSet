@@ -1,0 +1,27 @@
+#creating replicaset with equality & set based selectors
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs1
+spec: 
+  replicas: 5
+  selector:
+    matchLabels:
+      env: prod
+      #app:  frontend
+    matchExpressions:
+    -  { key: team,  operator: In,   values: [ team1, team2 ] }
+    -  { key: tier,  operator : In,  values: [ frontend ] }
+  template: 
+    metadata:
+      #name: pod5
+      labels:
+        tier: frontend
+        team: team1
+        #region: In
+        env: prod
+    spec: 
+      containers:
+      - name: nagesh
+        image: nagesh357/apache-webserver-php
+        
