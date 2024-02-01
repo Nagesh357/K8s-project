@@ -1,0 +1,13 @@
+#Launch service (default - ClusterIp)  
+# SVC has selector that finds endpont using pods labels
+
+apiVersion : v1
+kind: Service
+metadata:
+  name: mylb1
+spec:
+  selector:
+    app: web
+  ports:
+  - targetPort: 80
+    port: 8080 
